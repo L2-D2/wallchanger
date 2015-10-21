@@ -14,6 +14,9 @@ my $photo;
 
 while(1){
     $photo = $photos[rand($#photos)];
+######################## Using feh (generic WM)
     `feh --bg-scale "file:///$photo"`;
+######################## Using GNOME
+#   `gsettings set org.gnome.desktop.background picture-uri file:///$photo`;
     sleep($switchTime);
 }
