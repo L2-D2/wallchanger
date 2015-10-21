@@ -1,0 +1,19 @@
+#!/usr/bin/perl -w
+use strict;
+use warnings;
+
+################################## searchPath
+my $searchPath = '~/images/walls/';
+
+################################## switchTime
+my $switchTime = 180;
+
+my @photos = `find $searchPath -maxdepth 1 -type f | grep [jJ][pP][eE]*[gG]`;
+chomp(@photos);
+my $photo;
+
+while(1){
+    $photo = $photos[rand($#photos)];
+    `feh --bg-scale "file:///$photo"`;
+    sleep($switchTime);
+}
